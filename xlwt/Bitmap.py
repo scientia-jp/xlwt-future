@@ -4,8 +4,11 @@
 #  Portions are Copyright (c) 2004 Evgeny Filatov <fufff@users.sourceforge.net>
 #  Portions are Copyright (c) 2002-2004 John McNamara (Perl Spreadsheet::WriteExcel)
 
-from BIFFRecords import BiffRecord
+from __future__ import absolute_import
+from __future__ import division
+from .BIFFRecords import BiffRecord
 from struct import pack, unpack
+from future import *
 
 
 def _size_col(sheet, col):
@@ -192,7 +195,7 @@ def _process_bitmap(bitmap):
 
     """
     # Open file and binmode the data in case the platform needs it.
-    fh = file(bitmap, "rb")
+    fh = open(bitmap, "rb")
     try:
         # Slurp the file into a string.
         data = fh.read()
