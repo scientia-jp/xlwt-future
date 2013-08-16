@@ -46,7 +46,7 @@ from __future__ import absolute_import
 from __future__ import division
 import sys
 from future.builtins import *
-from future.utils import PY2, PY3
+from future.utils import PY2, PY3, implements_iterator
 
 ###xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx###
 ###                     global symbols                             ###
@@ -901,6 +901,7 @@ class TokenStream(object):
 ###                    TokenStreamIterator                                 ###
 ###xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx###
 
+@implements_iterator
 class TokenStreamIterator(object):
     def __init__(self,inst):
         if isinstance(inst,TokenStream):
@@ -1559,6 +1560,7 @@ class CharScanner(TokenStream):
 ###                   CharScannerIterator                          ###
 ###xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx###
 
+@implements_iterator
 class CharScannerIterator:
 
     def __init__(self,inst):
