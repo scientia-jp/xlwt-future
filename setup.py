@@ -6,10 +6,12 @@ from xlwt import __VERSION__
 DESCRIPTION = (
     'Library to create spreadsheet files compatible with '
     'MS Excel 97/2000/XP/2003 XLS files, '
-    'on any platform, with Python 2.3 to 2.7'
+    'on any platform, with Python 2.7 to 3.3'
     )
 
 LONG_DESCRIPTION = """\
+Py2.7 and Py3.3+ fork of xlwt.
+
 xlwt is a library for generating spreadsheet files that are compatible
 with Excel 97/2000/XP/2003, OpenOffice.org Calc, and Gnumeric. xlwt has
 full support for Unicode. Excel spreadsheets can be generated on any
@@ -20,6 +22,9 @@ Python 2.3 to 2.7.
 CLASSIFIERS = [
     'Operating System :: OS Independent',
     'Programming Language :: Python',
+    'Programming Language :: Python :: 2.7',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.3',
     'License :: OSI Approved :: BSD License',
     'Development Status :: 5 - Production/Stable',
     'Intended Audience :: Developers',
