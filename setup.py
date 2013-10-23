@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from distutils.core import setup
-from xlwt import __VERSION__
+from xlwt.version import __VERSION__
 
 DESCRIPTION = (
     'Library to create spreadsheet files compatible with '
