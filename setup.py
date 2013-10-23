@@ -59,4 +59,5 @@ setup(
             'tests/*.*',
             ],
         },
+    install_requires=['future>=0.6.0']
     )
