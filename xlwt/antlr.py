@@ -41,12 +41,17 @@
 ## End of contents of the ANTLR 2.7.7 LICENSE.txt ########################
 
 ## get sys module
-from __future__ import print_function
-from __future__ import absolute_import
-from __future__ import division
-import sys
+from __future__ import (absolute_import, division, print_function)
 from future.builtins import *
-from future.utils import PY2, PY3, implements_iterator
+from future.utils import PY2, PY3, implements_iterator, isbytes, istext
+import sys
+
+try:
+    # We need ``long`` on Python 2. future versions < 0.7
+    # overwrite ``long``
+    del long
+except NameError:
+    pass
 
 ###xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx###
 ###                     global symbols                             ###
@@ -95,9 +100,9 @@ def ifelse(cond,_then,_else):
 def is_string_type(x):
     # return  (isinstance(x,str) or isinstance(x,unicode))
     # Simplify; xlwt doesn't support Python < 2.3
-    # return isinstance(x, basestr)
+    # return isinstance(x, basestring)
     # Complicate again: xlwt does support Python 3.x
-    return (isinstance(x, bytes) or isinstance(x, str))
+    return isbytes(x) or istext(x)
 
 def assert_string_type(x):
     assert is_string_type(x)
@@ -1584,6 +1589,26 @@ class CharScannerIterator:
 ### a long is of any size. That means we can use a single long as the
 ### bitset (!), ie. Python would do almost all the work (TBD).
 
+def longify(data):
+    """
+    Turns data (a list or int or long) into a list of longs
+    """
+    if not data:
+        if PY3:
+            return [0]
+        else:
+            return [long(0)]
+    if not isinstance(data,list):
+        if PY3:
+            return [int(data)]
+        else:
+            return [long(data)]
+    if PY3:
+        return list(map(int, data))   # same as returning data, but safer (data must be int-like
+    else:
+        return list(map(long, data))
+        
+
 class BitSet(object):
     BITS     = 64
     NIBBLE   = 4
@@ -1591,28 +1616,11 @@ class BitSet(object):
     MOD_MASK = BITS -1
 
     def __init__(self,data=None):
-        if not data:
-            BitSet.__init__(self,[int(0)])
-            return
-        if PY2:
-            if isinstance(data,int):
-                BitSet.__init__(self,[long(data)])
-                return
-            if isinstance(data,long):
-                BitSet.__init__(self,[data])
-                return
-        else:
-            if isinstance(data,int):
-                BitSet.__init__(self,[data])
-                return
-        if not isinstance(data,list):
+        try:
+            self.data = longify(data)
+        except ValueError:
             raise TypeError("BitSet requires integer, long, or " +
                             "list argument")
-        for x in data:
-            if (PY3 and not isinstance(x,int)) or (PY2 and not isinstance(x, long)):
-                raise TypeError(self,"List argument item is " +
-                                "not a long: %s" % (x))
-        self.data = data
 
     def __str__(self):
         bits = len(self.data) * BitSet.BITS
