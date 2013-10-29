@@ -46,12 +46,6 @@ from future.builtins import *
 from future.utils import PY2, PY3, implements_iterator, isbytes, istext
 import sys
 
-try:
-    # We need ``long`` on Python 2. future versions < 0.7
-    # overwrite ``long``
-    del long
-except NameError:
-    pass
 
 ###xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx###
 ###                     global symbols                             ###
@@ -1594,19 +1588,10 @@ def longify(data):
     Turns data (a list or int or long) into a list of longs
     """
     if not data:
-        if PY3:
-            return [0]
-        else:
-            return [long(0)]
+        return [int(0)]
     if not isinstance(data,list):
-        if PY3:
-            return [int(data)]
-        else:
-            return [long(data)]
-    if PY3:
-        return list(map(int, data))   # same as returning data, but safer (data must be int-like
-    else:
-        return list(map(long, data))
+        return [int(data)]
+    return list(map(int, data))   # same as returning data, but safer (data must be int-like
         
 
 class BitSet(object):
