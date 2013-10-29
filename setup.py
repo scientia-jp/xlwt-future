@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 from distutils.core import setup
-from xlwt import __VERSION__
+__VERSION__ = '0.8-pre'
 
 DESCRIPTION = (
     'Library to create spreadsheet files compatible with '
@@ -59,4 +59,5 @@ setup(
             'tests/*.*',
             ],
         },
+    install_requires=['future>=0.6.0']
     )
