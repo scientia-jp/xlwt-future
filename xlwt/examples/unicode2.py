@@ -4,8 +4,9 @@
 
 from __future__ import absolute_import
 from __future__ import division
+from future.builtins import *
+
 from xlwt import *
-from future import *
 
 w = Workbook()
 ws1 = w.add_sheet(u'\N{GREEK SMALL LETTER ALPHA}\N{GREEK SMALL LETTER BETA}\N{GREEK SMALL LETTER GAMMA}\u2665\u041e\u041b\u042f\u2665')

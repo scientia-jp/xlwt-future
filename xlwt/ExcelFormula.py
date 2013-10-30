@@ -3,7 +3,7 @@
 from __future__ import absolute_import
 
 import struct
-from future import *
+from future.builtins import *
 
 from . import ExcelFormulaParser, ExcelFormulaLexer
 from .antlr import ANTLRException

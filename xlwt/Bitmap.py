@@ -4,11 +4,10 @@
 #  Portions are Copyright (c) 2004 Evgeny Filatov <fufff@users.sourceforge.net>
 #  Portions are Copyright (c) 2002-2004 John McNamara (Perl Spreadsheet::WriteExcel)
 
-from __future__ import absolute_import
-from __future__ import division
+from __future__ import (absolute_import, division, unicode_literals)
 from .BIFFRecords import BiffRecord
-from struct import pack, unpack
-from future import *
+from .Utils import pack, unpack
+from future.builtins import *
 
 
 def _size_col(sheet, col):

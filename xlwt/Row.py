@@ -9,6 +9,7 @@ from .Cell import StrCell, BlankCell, NumberCell, FormulaCell, MulBlankCell, Boo
 from . import ExcelFormula
 import datetime as dt
 from .Formatting import Font
+
 from future.builtins import *
 
 try:
@@ -246,7 +247,7 @@ class Row(object):
                 self.insert_cell(col, BlankCell(self.__idx, col, style_index))
         elif isinstance(label, bool): # bool is subclass of int; test bool first
             self.insert_cell(col, BooleanCell(self.__idx, col, style_index, label))
-        elif isinstance(label, (float, int, Decimal)):
+        elif isinstance(label, (float, Decimal)) or isinstance(label, int):
             self.insert_cell(col, NumberCell(self.__idx, col, style_index, label))
         elif isinstance(label, (dt.datetime, dt.date, dt.time)):
             date_number = self.__excel_date_dt(label)

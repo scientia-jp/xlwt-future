@@ -2,9 +2,10 @@
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import unicode_literals
-from struct import pack
 from .UnicodeUtils import upack1, upack2, upack2rt
+from .Utils import pack, unpack
 from future.builtins import *
+from future import utils
 
 class SharedStringTable(object):
     _SST_ID = 0x00FC

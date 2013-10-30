@@ -1,10 +1,10 @@
 ### $ANTLR 2.7.7 (20060930): "xlwt/excel-formula.g" -> "ExcelFormulaParser.py"$
 ### import antlr and other modules ..
 from __future__ import absolute_import
+from future.builtins import *
+
 import sys
 import struct
-
-from future import *
 
 from . import antlr
 from . import Utils

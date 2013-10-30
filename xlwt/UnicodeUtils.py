@@ -40,9 +40,10 @@ var.     ln or
 '''
 
 
-from __future__ import absolute_import
-from struct import pack
+from __future__ import absolute_import, division, unicode_literals
 from future.builtins import *
+
+from .Utils import pack, unpack
 
 def upack2(s, encoding='ascii'):
     # If not unicode, make it so.

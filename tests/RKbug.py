@@ -1,13 +1,12 @@
 from __future__ import print_function
 from __future__ import absolute_import
 from __future__ import division
+from future.builtins import *
 
 import sys
-from struct import pack, unpack
-
-from future import *
 
 from xlwt import *
+from xlwt.Utils import pack, unpack
 
 
 def cellname(rowx, colx):

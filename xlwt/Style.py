@@ -1,12 +1,11 @@
 # -*- coding: windows-1252 -*-
 
-from __future__ import print_function
-from __future__ import absolute_import
+from __future__ import absolute_import, print_function, unicode_literals
 # -*- coding: windows-1252 -*-
 
 from . import Formatting
 from .BIFFRecords import NumberFormatRecord, XFRecord, StyleRecord
-from future import *
+from future.builtins import *
 
 FIRST_USER_DEFINED_NUM_FORMAT_IDX = 164
 

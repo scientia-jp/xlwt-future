@@ -2,7 +2,7 @@
 
 from __future__ import absolute_import
 import struct
-from future import *
+from future.builtins import *
 
 # This implementation writes only 'Root Entry', 'Workbook' streams
 # and 2 empty streams for aligning directory stream on sector boundary

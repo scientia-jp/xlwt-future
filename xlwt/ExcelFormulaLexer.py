@@ -5,7 +5,7 @@ from __future__ import absolute_import
 from .antlr import EOF, CommonToken as Tok, TokenStream, TokenStreamException
 from . import ExcelFormulaParser
 from re import compile as recompile, LOCALE, IGNORECASE, VERBOSE
-from future import *
+from future.builtins import *
 
 
 int_const_pattern = r"\d+\b"

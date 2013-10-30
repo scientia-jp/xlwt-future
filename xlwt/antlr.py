@@ -43,7 +43,7 @@
 ## get sys module
 from __future__ import (absolute_import, division, print_function)
 from future.builtins import *
-from future.utils import PY2, PY3, implements_iterator, isbytes, istext
+from future.utils import PY2, PY3, implements_iterator
 import sys
 
 
@@ -96,7 +96,7 @@ def is_string_type(x):
     # Simplify; xlwt doesn't support Python < 2.3
     # return isinstance(x, basestring)
     # Complicate again: xlwt does support Python 3.x
-    return isbytes(x) or istext(x)
+    return isinstance(x, str) or isinstance(x, bytes)
 
 def assert_string_type(x):
     assert is_string_type(x)
