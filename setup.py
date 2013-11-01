@@ -46,8 +46,8 @@ KEYWORDS = (
 setup(
     name = 'xlwt-future',
     version = __VERSION__,
-    maintainer = 'Python Charmers Pty Ltd, Australia',
-    maintainer_email = 'help@pythoncharmers.com',
+    maintainer = 'John Machin',
+    maintainer_email = 'sjmachin@lexicon.net',
     url = 'http://www.python-excel.org/',
     download_url = 'http://pypi.python.org/pypi/xlwt-future',
     description = DESCRIPTION,
