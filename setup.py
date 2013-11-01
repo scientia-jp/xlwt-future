@@ -5,7 +5,7 @@ try:
 except ImportError:
     from distutils.core import setup
 
-__VERSION__ = '0.8-pre'
+__VERSION__ = '0.8.0'
 
 DESCRIPTION = (
     'Library to create spreadsheet files compatible with '
@@ -44,12 +44,12 @@ KEYWORDS = (
     )
 
 setup(
-    name = 'xlwt',
+    name = 'xlwt-future',
     version = __VERSION__,
-    maintainer = 'John Machin',
-    maintainer_email = 'sjmachin@lexicon.net',
+    maintainer = 'Python Charmers Pty Ltd, Australia',
+    maintainer_email = 'help@pythoncharmers.com',
     url = 'http://www.python-excel.org/',
-    download_url = 'http://pypi.python.org/pypi/xlwt',
+    download_url = 'http://pypi.python.org/pypi/xlwt-future',
     description = DESCRIPTION,
     long_description = LONG_DESCRIPTION,
     license = 'BSD',

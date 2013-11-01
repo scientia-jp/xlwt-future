@@ -8,4 +8,4 @@ from .Formatting import Font, Alignment, Borders, Pattern, Protection
 from .Style import XFStyle, easyxf, easyfont, add_palette_colour
 from .ExcelFormula import *
 
-__VERSION__ = '0.8-pre'
+__VERSION__ = '0.8.0'
